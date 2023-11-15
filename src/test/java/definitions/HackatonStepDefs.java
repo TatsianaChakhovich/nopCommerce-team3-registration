@@ -6,14 +6,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
-import support.TestContext;
 
 import java.time.Duration;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static support.TestContext.getDriver;
 
-public class HackathonPredefSteps {
+public class HackatonStepDefs {
 
     //Background
     @Given("I open {string} web application")
@@ -39,8 +38,8 @@ public class HackathonPredefSteps {
     public void iVerifyFieldIsRequired(String field) {
         assertThat(getDriver().findElement(By.xpath("//label[text()=\"" + field + ":\"]//..//span[@class='required']")).getText()).isEqualTo("*");
     }
-    @Then("I click {string} btn")
-    public void iClickBtn(String btn) {
+    @Then("I click Register btn")
+    public void iClickRegisterBtn() {
         getDriver().findElement(By.id("register-button")).click();
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
@@ -54,8 +53,8 @@ public class HackathonPredefSteps {
     public void iEnterIntoFirstNameField(String firstName) {
         getDriver().findElement(By.id("FirstName")).sendKeys(firstName);
     }
-    @Then("Error message {string} should  not be displayed next to First name field")
-    public void errorMessageShouldNotBeDisplayedNextToFirstNameField(String errorMessage) {
+    @Then("Error message should not be displayed next to First name field")
+    public void errorMessageShouldNotBeDisplayedNextToFirstNameField() {
         assertThat(getDriver().findElement(By.xpath("//span[@data-valmsg-for='FirstName']")).getAttribute("class")).isEqualTo("field-validation-valid");
     }
 
@@ -70,8 +69,8 @@ public class HackathonPredefSteps {
     public void iEnterIntoLastNameField(String lastName) {
         getDriver().findElement(By.id("LastName")).sendKeys(lastName);
     }
-    @Then("Error message {string} should  not be displayed next to Last name field")
-    public void errorMessageShouldNotBeDisplayedNextToLastNameField(String errorMessage) {
+    @Then("Error message should not be displayed next to Last name field")
+    public void errorMessageShouldNotBeDisplayedNextToLastNameField() {
         assertThat(getDriver().findElement(By.xpath("//span[@data-valmsg-for='LastName']")).getAttribute("class")).isEqualTo("field-validation-valid");
     }
 
@@ -94,8 +93,8 @@ public class HackathonPredefSteps {
     public void iClearField(String field) {
         getDriver().findElement(By.id(field)).clear();
     }
-    @Then("Error message {string} should  not be displayed next to Email field")
-    public void errorMessageShouldNotBeDisplayedNextToEmailField(String errorMessage) {
+    @Then("Error message should not be displayed next to Email field")
+    public void errorMessageShouldNotBeDisplayedNextToEmailField() {
         assertThat(getDriver().findElement(By.xpath("//span[@data-valmsg-for='Email']")).getAttribute("class")).isEqualTo("field-validation-valid");
     }
 
@@ -116,8 +115,8 @@ public class HackathonPredefSteps {
         String actualText = getDriver().findElement(By.xpath("//span[@id='Password-error']")).getText();
         Assertions.assertThat(actualText).containsIgnoringCase(errorMessage);
     }
-    @Then("Error message {string} is not displayed next to Password field")
-    public void errorMessageIsNotDisplayedNextToPasswordField(String errorMessage) {
+    @Then("Error message is not displayed next to Password field")
+    public void errorMessageIsNotDisplayedNextToPasswordField() {
         assertThat(getDriver().findElement(By.xpath("//span[@data-valmsg-for='Password']")).getAttribute("class")).isEqualTo("field-validation-valid");
     }
     @Then("Error message {string} should be displayed next to Confirm password field")
@@ -130,8 +129,8 @@ public class HackathonPredefSteps {
     public void iEnterIntoConfirmPasswordField(String confPassword) {
         getDriver().findElement(By.id("ConfirmPassword")).sendKeys(confPassword);
     }
-    @Then("Error message {string} should  not be displayed next to Confirm password field")
-    public void errorMessageShouldNotBeDisplayedNextToConfirmPasswordField(String errorMessage) {
+    @Then("Error message should not be displayed next to Confirm password field")
+    public void errorMessageShouldNotBeDisplayedNextToConfirmPasswordField() {
         assertThat(getDriver().findElement(By.xpath("//span[@data-valmsg-for='ConfirmPassword']")).getAttribute("class")).isEqualTo("field-validation-valid");
     }
 
@@ -142,9 +141,9 @@ public class HackathonPredefSteps {
     }
     @When("I select {int}, {string}, {int} for Date of birth")
     public void iSelectForDateOfBirth(int day, String month, int year) {
-        getDriver().findElement(By.xpath("//select[@name='DateOfBirthDay']/*[@value='20']")).click();
-        getDriver().findElement(By.xpath("//select[@name='DateOfBirthMonth']/*[contains(text(), \"June\")]")).click();
-        getDriver().findElement(By.xpath("//select[@name='DateOfBirthYear']/*[@value='1985']")).click();
+        getDriver().findElement(By.xpath("//select[@name='DateOfBirthDay']/*[@value='" + day + "']")).click();
+        getDriver().findElement(By.xpath("//select[@name='DateOfBirthMonth']/*[contains(text(), \"" + month + "\")]")).click();
+        getDriver().findElement(By.xpath("//select[@name='DateOfBirthYear']/*[@value='" + year + "']")).click();
     }
     @And("I enter {string} into Company name field")
     public void iEnterIntoCompanyNameField(String companyName) {
