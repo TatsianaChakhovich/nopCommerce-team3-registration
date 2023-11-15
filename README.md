@@ -1,4 +1,2 @@
-# java-webdriver-cucumber
-
-Base framework for Java Webdriver automation with Cucumber
+Test scenarios from Team3 for Registration page of nopCommerce application
 
