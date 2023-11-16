@@ -80,7 +80,7 @@
       And I click Register btn
       Then I verify that user is logged in
       Examples:
-        | gender   | firstName | lastName | day | month     | year | email                      | companyName | password   | confPassword |
+        | gender   | firstName | lastName | day | month     | year | email                  | companyName | password   | confPassword |
         | "male"   | "Ivan"    | "Ivanov" | 20  | "June"    | 1985 | "ivanov9@gmail.com"    | "Apple"     | "123456"   | "123456"     |
         | "female" | "Hanna"   | "Smith"  | 1   | "January" | 2001 | "hs-247459@yahoo.com"  | "Td&55"     | "Gg56*$@!" | "Gg56*$@!"   |
 
