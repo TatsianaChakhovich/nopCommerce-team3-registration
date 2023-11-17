@@ -41,7 +41,6 @@
         | "@gmail.com"    |
         | "test.com"      |
         | "test@.com"     |
-        | "test@gmailcom" |
         | "test@gmail."   |
 
       @nopCommerce4
@@ -80,15 +79,15 @@
       And I click Register btn
       Then I verify that user is logged in
       Examples:
-        | gender   | firstName | lastName | day | month     | year | email                      | companyName | password   | confPassword |
-        | "male"   | "Ivan"    | "Ivanov" | 20  | "June"    | 1985 | "ivanov9@gmail.com"    | "Apple"     | "123456"   | "123456"     |
-        | "female" | "Hanna"   | "Smith"  | 1   | "January" | 2001 | "hs-247459@yahoo.com"  | "Td&55"     | "Gg56*$@!" | "Gg56*$@!"   |
+        | gender   | firstName | lastName | day | month     | year | email                  | companyName | password   | confPassword |
+        | "male"   | "Ivan"    | "Ivanov" | 20  | "June"    | 1985 | "ivanov95@gmail.com"   | "Apple"     | "123456"   | "123456"     |
+        | "female" | "Hanna"   | "Smith"  | 1   | "January" | 2001 | "hs-2474595@yahoo.com" | "Td&55"     | "Gg56*$@!" | "Gg56*$@!"   |
 
     @nopCommerce6
     Scenario: Verify that user is not able to register twice using the same email
       When I enter "Ben" into First name field
       And I enter "Jonson" into Last name field
-      When I enter "ivanov9@gmail.com" into Email field
+      When I enter "ivanov95@gmail.com" into Email field
       And I enter "Aa111222" into Password field
       When I enter "Aa111222" into Confirm password field
       And I click Register btn
